@@ -1,0 +1,14 @@
+{
+  "name": "yarn",
+  "version": "yarn",
+  "main": "yarn",
+  "repository": "fvdvj",
+  "author": "bfkbs",
+  "license": "fjsbj",
+  "description": "start",
+  "private": null,
+  "dependencies": {
+    "antd": "^5.7.0",
+    "styled-components": "^6.0.4"
+  }
+}
