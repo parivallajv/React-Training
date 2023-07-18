@@ -1,0 +1,7 @@
+/* background-color: ${(props) => (props?.change ? props?.bgColor : false)}; */
+  /* background-color: ${(props)=>props.change?rgb}; */
+
+
+  bgColor={bgColor}
+
+  change={change}
