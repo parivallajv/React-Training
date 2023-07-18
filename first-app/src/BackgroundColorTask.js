@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-
 const MainDiv = styled.div`
   height: 100vh;
   background-color: rgb(${(props)=>props?.bgR},${(props)=>props?.bgG},${(props)=>props?.bgB});
@@ -55,7 +54,7 @@ const App = () => {
           }}
         />
 
-    // <button onClick={() => setChange(true)}>Change color</button>
+     {/* <button onClick={() => setChange(true)}>Change color</button> */}
         
       </SubDiv>
     </MainDiv>
