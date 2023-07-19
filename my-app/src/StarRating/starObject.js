@@ -1,0 +1,21 @@
+export const colorObj=[{
+    id:1,
+    color:"#CF0812"
+},
+{
+    id:2,
+    color:"#CF0812"
+},
+{
+    id:3,
+    color:"#FAAD14"
+},
+{
+    id:4,
+    color:"#85BA6A"
+},
+{
+    id:5,
+    color:"#1F5404"
+}
+]
