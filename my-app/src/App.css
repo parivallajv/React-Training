@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+
+.star {
+  font-size: 50px;
+  cursor: pointer;
+  width: 20%;
+  height: 100%;
+  color: #ddd;
+  margin-right: 5px;
+}
+
+.star.selected {
+  width: 30%;
+  height: 100%;
+  color: #ffcc00;
+}
+
+.star-inner {
+  width: 30%;
+  color: #ffcc00;
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
