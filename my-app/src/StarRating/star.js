@@ -9,7 +9,10 @@ const Star = () => {
 
   const RatingStar = styled(AiFillStar)`
     fill: ${(props) => (props?.clr ? props.clr : "black")};
-    offset:50%;
+    x:0;
+    x:20%;
+    y:0;
+    y:20%;
     width: 150px;
     height: 150px;
   `;

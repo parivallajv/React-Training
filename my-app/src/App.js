@@ -1,3 +1,4 @@
+import {Book} from './Book';
 import Star from './StarRating/star'
 
 function App() {
