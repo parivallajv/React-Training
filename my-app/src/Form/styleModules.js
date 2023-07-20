@@ -3,17 +3,15 @@ import { AiFillIdcard, AiFillStar } from "react-icons/ai";
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 
 export const Star1=styled(FaStar)`
-
-
+width:30px;
+fill:yellow;
 `
 export const Star2=styled(FaStarHalfAlt)`
-
-
+width:30px;
+fill:yellow;
 `
 export const Star3=styled(FaRegStar)`
-font-size:10px;
-
-width:10px;
+width:30px;
 `
 
 export const Div=styled.div`
