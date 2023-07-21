@@ -13,39 +13,40 @@ fill:yellow;
 export const Star3=styled(FaRegStar)`
 width:30px;
 `
-
 export const Div=styled.div`
 padding:20px;
 display:flex;
-width:40%;
+float:left;
+width:400px;
 flex-direction:column;
-justify-content:center;
 border:0.5px solid grey;
 border-radius:10px;
 box-sizing:border-box;
-margin-left:35%;
+margin-left:10%;
 align-items:center;
-margin-top:20px;
+margin-top:10px;
 `
 export const Input=styled.input`
 width:250px;
 height:40px;
 padding:2px 5px; 
-margin-bottom:30px
+margin-bottom:10px;
+margin-top:10px
 `
 
 export const H2=styled.h2`
 font-size:30px;
-margin-bottom:50px
+margin-bottom:20px
 `
 
-export const StarDiv=styled.div`
+export const RightDiv=styled.div`
 display:flex;
-width:430px;
+float:right;
+width:370px;
 flex-direction:row;
 justify-content:justify;
 align-items:center;
-margin-top:20px;
+margin-top:10px;
 border:1px solid grey;
 border-radius:10px;
 padding:10px
@@ -69,15 +70,15 @@ border-radius:10px;
 `
 
 export const H3=styled.h3`
-margin:10px 0px`
+margin:10px 0px
+`
 
 export const Avatar=styled(AiFillIdcard)`
 font-size:70px;
-
 `
 
 export const RatingStar = styled(AiFillStar)`
     fill: yellow;
     width: 20px;
     height: 20px;
-  `;
+`;

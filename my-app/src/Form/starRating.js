@@ -9,11 +9,11 @@ const StarRating = (props) => {
       const roundedRating = rating
       for (let i = 1; i <= 5; i++) {
         if (roundedRating >= i) {
-          starIcons.push(<Star1 key={i} color='yellow' size="10px"/>);
+          starIcons.push(<Star1 key={i} />);
         } else if (roundedRating >= i - 0.5) {
-          starIcons.push(<Star2 key={i} color='yellow' size="10px"/>);
+          starIcons.push(<Star2 key={i} />);
         } else {
-          starIcons.push(<Star3 key={i} color='yellow' size="10px"/>);
+          starIcons.push(<Star3 key={i} />);
         }
       }
       return starIcons;

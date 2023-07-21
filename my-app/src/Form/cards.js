@@ -1,4 +1,4 @@
-import { H3,Star1, Star2, Star3, StarDiv } from "./styleModules";
+import { H3,RightDiv,Star1, Star2, Star3} from "./styleModules";
 import { Avatar } from "./styleModules";
 
 
@@ -25,16 +25,17 @@ const Cards = (props) => {
   };
  
   return (
-    <StarDiv>
+    <RightDiv>
       <Avatar></Avatar>
       <div>
         <H3>Name: {props.name}</H3>
         <H3>Location: {props.location}</H3>
         <H3>Rating: {getStars(props.rating)} </H3>
         <H3>Feedback: {props.feedback}</H3>
+        <div>{props.image}</div>
         <button onClick={handleDeleteClick}>Delete</button>
       </div>
-    </StarDiv>
+    </RightDiv>
   );
 };
 
