@@ -1,5 +1,6 @@
 import { H1, H2, Button } from "./styles";
 import { Div } from "./styles";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const BlogList = ({ blogs, title, handleDelete }) => {
   return (
@@ -10,16 +11,12 @@ const BlogList = ({ blogs, title, handleDelete }) => {
         return (
           <div className="blog-list" key={blog.id}>
             <Div className="blog-preview">
-              <H2 style={{ padding: "1%" }}>Title: {blog.title}</H2>
-              <h3 style={{ padding: "1%", width: "90%" }}>
-                Body : {blog.body}
-              </h3>
-              <h4 style={{ padding: "1%" }}>Author: {blog.author}</h4>
-              <Button
-                style={{ padding: "0.5%", boxSizing: "content-box" }}
-                onClick={() => handleDelete(blog.id)}>
-                Delete
-              </Button>
+              <Link to={`/blogs/${blog.id}`}>
+              <H2>Title: {blog.title}</H2>
+              <h3>Body : {blog.body}</h3>
+              <h4>Author: {blog.author}</h4>
+              <Button onClick={() => handleDelete(blog.id)}>Delete</Button>
+              </Link>
             </Div>
           </div>
         );
