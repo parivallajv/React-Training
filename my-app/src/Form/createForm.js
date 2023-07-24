@@ -20,6 +20,7 @@ const CreateForm = () => {
   const handleFormSubmit = () => {
     if (!name) {
       alert("Please enter your name before submitting.");
+
       return;
     }
 
@@ -37,10 +38,13 @@ const CreateForm = () => {
   };
 
   const findData = () => {
+    
     const filteredData = submittedDataList.filter((data) =>
       data.name.toLowerCase().includes(findName.toLowerCase())
     );
     setFilteredDataList(filteredData);
+    console.log(filteredData);
+    
   };
 
   const deleteData = (index) => {
@@ -110,6 +114,7 @@ const CreateForm = () => {
           location={location}
           rating={rating}
           feedback={feedback}
+          
           onClick={() => handleFormSubmit()}
         >
           SUBMIT

@@ -1,0 +1,17 @@
+{
+    "blogs":[
+        {
+            "title":"My new website",
+            "body":"Web dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tips",
+            "author":"mario",
+            "id":1
+        },
+        {
+                "title":"Welcome party",
+                "body":"Web dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tipsWeb dev top tips",
+                "author":"yoshi",
+                "id":2
+        }
+        
+    ]
+}

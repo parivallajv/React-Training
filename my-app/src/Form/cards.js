@@ -32,7 +32,7 @@ const Cards = (props) => {
         <H3>Location: {props.location}</H3>
         <H3>Rating: {getStars(props.rating)} </H3>
         <H3>Feedback: {props.feedback}</H3>
-        <div>{props.image}</div>
+        <img src="" alt="" />
         <button onClick={handleDeleteClick}>Delete</button>
       </div>
     </RightDiv>
