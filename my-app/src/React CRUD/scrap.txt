@@ -1,0 +1,126 @@
+
+
+
+================================================================================================================================
+
+import { useState ,useEffect} from "react";
+import useFetch from "./fetch";
+import { Button, FormContainer,Input,FileInput } from "../React-useState,useEffect/styles";
+
+const CreateProduct = ({ productToEdit, onCreate, onUpdate }) => {
+  const [productName, setProductName] = useState("");
+  const [thumbnail, setThumbnail] = useState(null);
+
+  useEffect(() => {
+    if (productToEdit) {
+      setProductName(productToEdit.name);
+      setThumbnail(productToEdit.thumbnail);
+    }
+  }, [productToEdit]);
+
+
+  const { handleCreateProduct,handleUpdateProduct } = useFetch("http://localhost:8000/products");
+  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const productData = new FormData();
+    productData.append("name", productName);
+    productData.append("thumbnail", thumbnail);
+
+    if (productToEdit) {
+      
+        onUpdate(productToEdit.id, productData);
+      } else {
+      
+        onCreate(productData);
+      }
+
+    setProductName("");
+    setThumbnail(null);
+  };
+  return (
+    <FormContainer onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        value={productName}
+        onChange={(e) => setProductName(e.target.value)}
+        placeholder="Enter Name of Product "
+      />
+      <FileInput
+        type="file"
+        value={thumbnail}
+        onChange={(e) => setThumbnail(e.target.value)}
+        name="thumbnail"
+      />
+      <Button type="submit"> {productToEdit ? "Update Product" : "Create Product"}</Button>
+    </FormContainer>
+  );
+};
+
+export default CreateProduct;
+
+=============================================Home============================================================
+
+import React from "react";
+import useFetch from "./fetch";
+import { Div, H2 } from "../React-useState,useEffect/styles";
+import CreateProduct from "./CreateProduct";
+import ProductList from "./ProductList";
+
+const Home = () => {
+  const { isErr, isLoading, products, handleDelete, handleCreateProduct, handleUpdateProduct } = useFetch(
+    "http://localhost:8000/products"
+  );
+
+  return (
+    <div className="Home">
+      {isLoading && <Div>Loading....</Div>}
+      {isErr && <Div>{isErr}</Div>}
+      <CreateProduct
+        onCreate={handleCreateProduct}
+        onUpdate={handleUpdateProduct}
+      />
+      {products && (
+        <>
+          <H2>Shopping Zone</H2>
+          <ProductList
+            products={products}
+            handleDelete={handleDelete}
+          />
+        </>
+      )}
+    </div>
+  );
+};
+
+export default Home;
+
+=============================================Home============================================================
+
+import { Div } from "../React-useState,useEffect/styles";
+import CreateProduct from "./createProduct";
+import useFetch from "./fetch";
+import ProductList from "./ProductList";
+
+const Home = () => {
+  const { isErr, isLoading, products,handleDelete } = useFetch(
+    "http://localhost:8000/products"
+  );
+
+  return (
+    <div className="Home">
+      {isLoading && <Div>Loading....</Div>}
+      {isErr && <Div>{isErr}</Div>}
+      <CreateProduct/>
+      {products && (
+        <ProductList isErr={isErr} isLoading={isLoading} products={products} handleDelete={handleDelete}/>
+      )}
+    </div>
+  );
+};
+
+export default Home;
+
+
