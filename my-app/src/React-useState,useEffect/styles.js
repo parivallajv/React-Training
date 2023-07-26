@@ -77,15 +77,14 @@ export const MainDiv = styled.div`
 export const GridContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 30px;
+  grid-gap: 20px;
   justify-content:center;
   margin: 0 auto;
 `;
 
 export const GridItem = styled.div`
   display: flex;
-  // flex-direction: column;
-  // align-items: center;
+  // width:350px;
   justify-content:center;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.2);
   padding: 5px;

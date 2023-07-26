@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const useFetch = (url) => {
   const [products, setProducts] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [isErr, setErr] = useState(null);
+
+  const history = useHistory();
 
   const handleCreateProduct = async (newProductData) => {
     try {
@@ -14,7 +17,7 @@ const useFetch = (url) => {
           "Content-Type": "multipart/form-data",
         },
       });
-      setProducts([...products, response.data]);
+      setProducts([...products, response?.data]);
       setLoading(false);
     } catch (error) {
       console.error("Error creating a new product:", error);
@@ -23,23 +26,42 @@ const useFetch = (url) => {
     }
   };
 
-  const handleUpdate = (id,BrandName)=>{
-      let newObj={
-        title: `${BrandName}`,
-        thumbnail : "https://i.dummyjson.com/data/products/6/thumbnail.png"
-      }
-          axios.put(`http://localhost:8000/products/${id}`,newObj)
-  }
+  const handleUpdate = (id, BrandName,thumbnail) => {
+    let newObj = {
+      title: `${BrandName}`,
+      thumbnail: `${thumbnail}`
+    };
+
+    if (newObj?.title === null) {
+      alert("enter product name");
+    } else {
+      axios.put(`http://localhost:8000/products/${id}`, newObj).then((res) => {
+        if (res?.status === 200) {
+          const newProducts = products?.map((data) => {
+            return data;
+          });
+
+          setProducts(newProducts);
+          history.push("/");
+          alert("product name updated successfully");
+        } else {
+          throw Error("Failed to update the product from the backend.");
+        }
+      });
+    }
+  };
 
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:8000/products/${id}`)
       .then((res) => {
-        if (res.status === 200) {
-          const newProducts = products.filter((data) => {
-            return data.id !== id;
+        if (res?.status === 200) {
+          const newProducts = products?.filter((data) => {
+            return data?.id !== id;
           });
           setProducts(newProducts);
+          alert("product deleted successfully");
+          history.push("/");
         } else {
           throw Error("Failed to delete the product from the backend.");
         }
@@ -50,24 +72,29 @@ const useFetch = (url) => {
       });
   };
 
+  const handleEdit=(id)=>{
+    
+  }
+
+
   useEffect(() => {
     setTimeout(() => {
       axios
         .get(url)
         .then((res) => {
-          if (res.status !== 200) {
+          if (res?.status !== 200) {
             throw Error("data cannot be fetched");
           } else {
-            setProducts(res.data);
+            setProducts(res?.data);
             setLoading(false);
           }
         })
         .catch((err) => {
-          setErr(err.message);
+          setErr(err?.message);
           setLoading(false);
         });
-    }, 1000);
-  },[url]);
+    }, 1200);
+  }, [url]);
 
   return {
     isLoading,
@@ -76,6 +103,7 @@ const useFetch = (url) => {
     handleDelete,
     handleCreateProduct,
     handleUpdate,
+    handleEdit
   };
 };
 

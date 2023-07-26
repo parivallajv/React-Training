@@ -1,12 +1,12 @@
-import Home from "./React CRUD/Home";
-import ProductRoute from "./React CRUD/ProductRoute";
+import ProductRoute from './React CRUD/ProductRoute'
+import React from "react";
 
-function App() {
-  return (
-   <div>
+class App extends React.Component {
+  render(){
+    return(<div className="App">
       <ProductRoute/>
-   </div>
-  );
+    </div>)
+  }
 }
 
 export default App;

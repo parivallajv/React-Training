@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { Div, H2 } from "../React-useState,useEffect/styles";
+import { H2 } from "../React-useState,useEffect/styles";
 
 const Navbar = () => {
   return (
@@ -10,7 +10,7 @@ const Navbar = () => {
           Home
         </Link>
         <Link to="/create" style={{ textDecoration: "none", paddingLeft: 13 }}>
-          New Product
+          Add Product
         </Link>
         <Link to="/about" style={{ textDecoration: "none", paddingLeft: 13 }}>
           About us
