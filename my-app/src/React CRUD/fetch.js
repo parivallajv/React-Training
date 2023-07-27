@@ -6,6 +6,7 @@ const useFetch = (url) => {
   const [products, setProducts] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [isErr, setErr] = useState(null);
+  const [cartItem, setCartItem] = useState([]);
 
   const history = useHistory();
 
@@ -26,10 +27,17 @@ const useFetch = (url) => {
     }
   };
 
-  const handleUpdate = (id, BrandName,thumbnail) => {
+  const handleUpdate = (
+    id,
+    BrandName,
+    thumbnail,
+    setInputBox,
+    setEditBtn,
+    productName
+  ) => {
     let newObj = {
       title: `${BrandName}`,
-      thumbnail: `${thumbnail}`
+      thumbnail: `${thumbnail}`,
     };
 
     if (newObj?.title === null) {
@@ -44,12 +52,20 @@ const useFetch = (url) => {
           setProducts(newProducts);
           history.push("/");
           alert("product name updated successfully");
+          setInputBox(false);
+          setEditBtn(true);
         } else {
           throw Error("Failed to update the product from the backend.");
         }
       });
     }
   };
+
+  const addToCart = (id, productName, price, product) => {
+    
+    setCartItem((prevItem)=>[...prevItem,product]);
+  };
+  console.log("fetch",cartItem);
 
   const handleDelete = (id) => {
     axios
@@ -72,10 +88,11 @@ const useFetch = (url) => {
       });
   };
 
-  const handleEdit=(id)=>{
-    
-  }
-
+  const handleEdit = (id, setEdit, setInputBox, setUpdateBtn) => {
+    setEdit(false);
+    setInputBox(true);
+    setUpdateBtn(true);
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -103,7 +120,9 @@ const useFetch = (url) => {
     handleDelete,
     handleCreateProduct,
     handleUpdate,
-    handleEdit
+    handleEdit,
+    addToCart,
+    cartItem
   };
 };
 

@@ -18,6 +18,9 @@ const Navbar = () => {
         <Link to="/help" style={{ textDecoration: "none", paddingLeft: 13 }}>
           Support
         </Link>
+        <Link to="/cart" style={{ textDecoration: "none", paddingLeft: 13 }}>
+          View Cart
+        </Link>
       </div>
     </div>
   );
