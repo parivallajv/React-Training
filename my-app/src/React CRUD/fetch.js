@@ -2,11 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-const useFetch = (url) => {
+const useFetch = (url, setCartItem) => {
   const [products, setProducts] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [isErr, setErr] = useState(null);
-  const [cartItem, setCartItem] = useState([]);
 
   const history = useHistory();
 
@@ -61,12 +60,6 @@ const useFetch = (url) => {
     }
   };
 
-  const addToCart = (id, productName, price, product) => {
-    
-    setCartItem((prevItem)=>[...prevItem,product]);
-  };
-  console.log("fetch",cartItem);
-
   const handleDelete = (id) => {
     axios
       .delete(`http://localhost:8000/products/${id}`)
@@ -110,7 +103,7 @@ const useFetch = (url) => {
           setErr(err?.message);
           setLoading(false);
         });
-    }, 1200);
+    }, 100);
   }, [url]);
 
   return {
@@ -121,8 +114,6 @@ const useFetch = (url) => {
     handleCreateProduct,
     handleUpdate,
     handleEdit,
-    addToCart,
-    cartItem
   };
 };
 

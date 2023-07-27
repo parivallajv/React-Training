@@ -77,6 +77,7 @@ export const GridContainer = styled.div`
   grid-gap: 20px;
   justify-content: center;
   margin: 0 auto;
+  padding:10px;
 `;
 
 export const GridItem = styled.div`

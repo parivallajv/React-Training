@@ -1,22 +1,27 @@
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { useEffect } from "react";
-import React from "react";
+import React, { useState } from "react";
 import {
+  Button,
   Div,
   GridContainer,
   GridItem,
   H1,
   H2,
-  H4,
 } from "../React-useState,useEffect/styles";
-import useFetch from "./fetch";
-import { useState } from "react";
 
-const Cart = ({cartUrl}) => {
+const Cart = ({ cartItem, setCartItem, setCount, count }) => {
+  const [price, setPrice] = useState(0);
 
-  const { cartItem } = useFetch(cartUrl);
-  console.log("cart", cartItem);
+  const handleDelete = (id) => {
+    const updatedCartItems = cartItem.filter((item) => item.id !== id);
+    setCartItem(updatedCartItems);
 
+    const TotalPrice = updatedCartItems.reduce(
+      (total, items) => total + items.price,
+      0
+    );
+    setPrice(TotalPrice);
+    setCount(count - 1);
+  };
   return (
     <div>
       <GridContainer>
@@ -24,14 +29,17 @@ const Cart = ({cartUrl}) => {
           return (
             <GridItem className="product-List" key={data?.id}>
               <Div>
-                {/* <Link to={`/cart/${data?.id}`}> */}
                 <H1>Title : {data?.title}</H1>
                 <H2>Price : {data?.price}</H2>
-                {/* </Link> */}
+                <Button onClick={() => handleDelete(data?.id)}>DELETE</Button>
               </Div>
             </GridItem>
           );
         })}
+      </GridContainer>
+      <GridContainer>
+        <h2>Count : {count}</h2>
+        <h2>Total Price : {price}</h2>
       </GridContainer>
     </div>
   );
