@@ -2,9 +2,8 @@ import React from "react";
 import useFetch from "./fetch";
 import { Div } from "../React-useState,useEffect/styles";
 import ProductList from "./ProductList";
-import Cart from "./cart";
 
-const Home = ({addToCart}) => {
+const Home = ({addToCart,cartItem}) => {
   const {
     isErr,
     isLoading,
@@ -20,6 +19,7 @@ const Home = ({addToCart}) => {
       {isErr && <Div>{isErr}</Div>}
       {products && (
         <>
+        <h2>count : {cartItem.length}</h2>
           <ProductList
             products={products}
             handleUpdate={handleUpdate}

@@ -20,14 +20,17 @@ const Cart = ({ cartItem, setCartItem, setCount, count }) => {
       0
     );
     setPrice(TotalPrice);
-    setCount(count - 1);
   };
   return (
     <div>
       <GridContainer>
+        <h2>Count : {cartItem.length}</h2>
+        <h2>Total Price : {price}</h2>
+      </GridContainer>
+      <GridContainer>
         {cartItem?.map((data, index) => {
           return (
-            <GridItem className="product-List" key={data?.id}>
+            <GridItem className="product-List" index={index} >
               <Div>
                 <H1>Title : {data?.title}</H1>
                 <H2>Price : {data?.price}</H2>
@@ -37,10 +40,7 @@ const Cart = ({ cartItem, setCartItem, setCount, count }) => {
           );
         })}
       </GridContainer>
-      <GridContainer>
-        <h2>Count : {count}</h2>
-        <h2>Total Price : {price}</h2>
-      </GridContainer>
+      
     </div>
   );
 };

@@ -29,7 +29,7 @@ const ProductList = ({
   return (
     <div>
       <GridContainer>
-        {products.map((product, index) => {
+        {products?.map((product, index) => {
           return (
             <GridItem className="product-List" key={product?.id}>
               <Div>

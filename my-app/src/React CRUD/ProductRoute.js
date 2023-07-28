@@ -14,22 +14,10 @@ const ProductRoute = () => {
 
   const [count, setCount] = useState(0);
 
-
   const addToCart = (product) => {
     setCartItem((prevData) => [...prevData, product]);
 
     setCount(count + 1);
-
-    // const updatedCartItems = cartItem.filter((item) => item.id !== id);
-    // setCartItem(updatedCartItems);
-
-        
-    // const TotalPrice = updatedCartItems.reduce(
-    //     (total, items) => total + items.price,
-    //     0
-    //   );
-    //   setPrice(TotalPrice);
-
   };
 
   console.log("cartItem", cartItem);
@@ -42,7 +30,7 @@ const ProductRoute = () => {
         <div className="content">
           <Switch>
             <Route exact path="/">
-              <Home addToCart={addToCart} />
+              <Home addToCart={addToCart} cartItem={cartItem}/>
             </Route>
             <Route path="/create">
               <CreateProduct />
@@ -60,7 +48,6 @@ const ProductRoute = () => {
               <Cart
                 cartItem={cartItem}
                 setCartItem={setCartItem}
-                count={count}
                 setCount={setCount}
               />
             </Route>
