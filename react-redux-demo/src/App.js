@@ -1,19 +1,15 @@
 import "./App.css";
-import CakeContainer from "./components/CakeContainer";
-import HooksCakeContainer from "./components/HooksCakeContainer";
-import HooksIceCream from "./components/HooksIceCream";
-import IceCreamContainer from "./components/IceCreamContainer";
+import InputForm from "./redux/FormContainer/InputForm";
 import  store  from "./redux/store";
 import { Provider } from "react-redux";
 
 function App() {
   return (
+    <div className="App">
     <Provider store={store}>
-      <HooksCakeContainer/>
-      {/* <CakeContainer></CakeContainer> */}
-      {/* <IceCreamContainer/> */}
-      <HooksIceCream/>
+     <InputForm/>
     </Provider>
+    </div>
   );
 }
 

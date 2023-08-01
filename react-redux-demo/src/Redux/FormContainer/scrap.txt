@@ -1,0 +1,16 @@
+{!changeToEdit && (
+              <div key={index}>
+                <h2>Name: {inputValue.inputName}</h2>
+                <div>
+                  <h2>Gender: {inputValue.inputGender}</h2>
+                </div>
+                <h2>Email: {inputValue.inputEmail}</h2>
+                {/* {mailErr && <p>Please Enter Valid Mail Id</p>} */}
+                <h2>Cell No: {inputValue.inputCellNo}</h2>
+                <p>
+                  Agreed to Terms: {inputValue.inputCheckBox ? "Yes" : "No"}
+                </p>
+                <Button onClick={() => handleDelete(index)}>Delete</Button>
+                <Button onClick={() => handleEdit(index)}>Edit</Button>
+              </div>
+            )}
