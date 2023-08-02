@@ -12,6 +12,7 @@ import {
   CellNoInput,
 } from "../../styles";
 import isdCode from "./axios";
+import { useEffect, useState } from "react";
 
 import {
   addInputValue,
@@ -156,22 +157,22 @@ const InputForm = () => {
           onChange={(e) => setInputEmail(e.target.value)}
         />
         <RowDiv>
-        <Select>
-          {isdCode.map((data) => {
-            return (
-              <option>
-                {data.dial_code} {data.flag}
-              </option>
-            );
-          })}
-        </Select>
-        <CellNoInput
-          type="number"
-          placeholder="Enter Cell number"
-          required
-          value={inputCellNo}
-          onChange={handleChangeCellNo}
-        />
+          <Select>
+            {isdCode.map((data) => {
+              return (
+                <option>
+                  {data.dial_code} {data.flag}
+                </option>
+              );
+            })}
+          </Select>
+          <CellNoInput
+            type="number"
+            placeholder="Enter Cell number"
+            required
+            value={inputCellNo}
+            onChange={handleChangeCellNo}
+          />
         </RowDiv>
         {numErr && <h6>Please Enter Valid Cell Num</h6>}
         <RowDiv>
