@@ -8,14 +8,18 @@ import {
   ListItem,
   ListContainer,
   h6,
+  Select,
+  CellNoInput,
 } from "../../styles";
-import { useState } from "react";
-import { validEmail, validPassword } from "./regex";
+import isdCode from "./axios";
+
 import {
   addInputValue,
   removeInputValues,
   editInputValue,
 } from "./inputActions";
+import useFetch from "./axios";
+import axios from "axios";
 
 const InputForm = () => {
   const inputValues = useSelector((state) => state.input.inputValues);
@@ -95,7 +99,6 @@ const InputForm = () => {
     setEditIndex(null);
   };
 
-  
   const handleChangeCellNo = (e) => {
     const inputCellNoValue = e.target.value;
     if (inputCellNoValue.length <= 10) {
@@ -105,6 +108,12 @@ const InputForm = () => {
       setNumErr(true);
     }
   };
+  const url =
+    "https://gist.githubusercontent.com/devhammed/78cfbee0c36dfdaa4fce7e79c0d39208/raw/07df5ed443941c504c65e81c83e6313473409d4c/countries.json";
+
+  const [isdCode, setIsdCode] = useState([]);
+
+  axios.get(url).then((res) => setIsdCode(res.data));
 
   return (
     <div className="InputForm">
@@ -118,7 +127,7 @@ const InputForm = () => {
           onChange={(e) => setInputName(e.target.value)}
         />
         <br />
-        <RowDiv aria-required>
+        <RowDiv>
           <H4>Gender</H4>
 
           <input
@@ -146,13 +155,24 @@ const InputForm = () => {
           value={inputEmail}
           onChange={(e) => setInputEmail(e.target.value)}
         />
-        <Input
+        <RowDiv>
+        <Select>
+          {isdCode.map((data) => {
+            return (
+              <option>
+                {data.dial_code} {data.flag}
+              </option>
+            );
+          })}
+        </Select>
+        <CellNoInput
           type="number"
           placeholder="Enter Cell number"
           required
           value={inputCellNo}
           onChange={handleChangeCellNo}
         />
+        </RowDiv>
         {numErr && <h6>Please Enter Valid Cell Num</h6>}
         <RowDiv>
           <input

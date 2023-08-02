@@ -33,8 +33,8 @@ export const H1 = styled.h1`
 
 export const Button = styled.button`
   padding: 10px 20px;
-  width:70px;
-  text-align:center;
+  width: 70px;
+  text-align: center;
   background-color: #24a0ed;
   margin-right: 20px;
   color: white;
@@ -44,7 +44,7 @@ export const Button = styled.button`
 
 export const FormContainer = styled.form`
   display: flex;
-  width: 20%;
+  width: 300px;
   flex-direction: column;
   align-items: center;
   margin: 100px auto;
@@ -65,10 +65,12 @@ export const Input = styled.input`
   border: 1px solid #ccc;
 `;
 
-export const MainDiv = styled.div`
-  border:1px solid grey;
-  
+export const CellNoInput = styled(Input)`
+  width: 60%;
+`;
 
+export const MainDiv = styled.div`
+  border: 1px solid grey;
 `;
 
 export const GridContainer = styled.div`
@@ -145,5 +147,13 @@ export const ListContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const h6=styled.h6`
-color:red`
+export const h6 = styled.h6`
+  color: red;
+`;
+
+export const Select = styled.select`
+  width: 30%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+`;
