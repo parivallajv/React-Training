@@ -2,7 +2,6 @@ import {
   ADD_INPUT_VALUE,
   REMOVE_INPUT_VALUE,
   EDIT_INPUT_VALUE,
-  GET_ISD_DATA,
 } from "./inputTypes";
 
 const initialState = {

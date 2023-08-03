@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import {
   Input,
   FormContainer,
@@ -13,18 +13,27 @@ import {
   H2,
 } from "../../styles";
 import { useEffect, useState } from "react";
+import { fetchIsdData } from "./GetIsdData/IsdDataActions";
 import {
   addInputValue,
   removeInputValues,
   editInputValue,
 } from "./inputActions";
+
 import axios from "axios";
 import { validEmail } from "./regex";
 
-const InputForm = () => {
+
+const InputForm = ({ fetchIsdData }) => {
+  
+  useEffect(() => {
+    fetchIsdData();
+  }, []);
+  
   // 1. To store the values in Array
   const inputValues = useSelector((state) => state.input.inputValues);
-
+  const isdData =useSelector(state => state.isdData.isdData)
+  
   const dispatch = useDispatch();
 
   // 2. To receive values from the Input Form
@@ -42,7 +51,7 @@ const InputForm = () => {
   // 4. To show err message if we enter wrong pattern of Email and cell number
   const [numErr, setNumErr] = useState(false);
   const [mailErr, setMailErr] = useState(false);
-
+  
   // 5. To handle Submit Function
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,6 +98,7 @@ const InputForm = () => {
 
     // 11. To reset the form Empty
     setInputName("");
+
     setInputGender("");
     setInputEmail("");
     setInputCellNo("");
@@ -148,13 +158,15 @@ const InputForm = () => {
     setEditIndex(null);
   };
 
-  // 15. To get country code values from api
-  const url =
-    "https://gist.githubusercontent.com/devhammed/78cfbee0c36dfdaa4fce7e79c0d39208/raw/07df5ed443941c504c65e81c83e6313473409d4c/countries.json";
-  const [isdCode, setIsdCode] = useState([]);
-  useEffect(() => {
-    axios.get(url).then((res) => setIsdCode(res.data));
-  }, []);
+  const handleChangeCellNo = (e) => {
+    const inputCellNoValue = e.target.value;
+    if (inputCellNoValue.length <= 10) {
+      setInputCellNo(inputCellNoValue);
+      setNumErr(false);
+    } else {
+      setNumErr(true);
+    }
+  };
 
   return (
     // 16. Input Form
@@ -199,18 +211,12 @@ const InputForm = () => {
         />
         {mailErr && <H6>Please Enter Valid Email Id</H6>}
         <RowDiv>
-          <Select
-            value={inputCountryCode}
-            onChange={(e) => setInputCountryCode()}
-          >
-            <option value="">{isdCode.flag}</option>
-            {isdCode.map((data) => {
-              return (
-                <option>
-                  {data.dial_code} {data.flag}
-                </option>
-              );
-            })}
+          <Select>
+            {isdData && isdData.map((data,index) => (
+              <option key={index}>
+                {data.dial_code} {data.flag}
+              </option>
+            ))}
           </Select>
           <CellNoInput
             type="number"
@@ -311,4 +317,18 @@ const InputForm = () => {
   );
 };
 
-export default InputForm;
+// 1. To get isdData from API
+
+const mapStateToProps = (state) => {
+  return {
+    isdData: state.isdData,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchIsdData: () => dispatch(fetchIsdData()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputForm);
