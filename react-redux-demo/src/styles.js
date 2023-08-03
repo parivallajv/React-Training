@@ -9,7 +9,7 @@ export const RowDiv = styled.div`
 `;
 
 export const H2 = styled.h2`
-  font-size: 22px;
+  font-size: 18px;
   align-items: center;
   text-align: center;
   margin-top: 10px;
@@ -147,8 +147,9 @@ export const ListContainer = styled.div`
   margin-top: 20px;
 `;
 
-export const h6 = styled.h6`
+export const H6 = styled.h6`
   color: red;
+  margin:5px 10px;
 `;
 
 export const Select = styled.select`

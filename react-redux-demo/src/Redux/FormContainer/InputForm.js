@@ -9,6 +9,8 @@ import {
   ListContainer,
   Select,
   CellNoInput,
+  H6,
+  H2,
 } from "../../styles";
 import { useEffect, useState } from "react";
 import { fetchIsdData } from "./GetIsdData/IsdDataActions";
@@ -18,38 +20,72 @@ import {
   editInputValue,
 } from "./inputActions";
 
+import axios from "axios";
+import { validEmail } from "./regex";
+
+
 const InputForm = ({ fetchIsdData }) => {
   
   useEffect(() => {
     fetchIsdData();
   }, []);
-
+  
+  // 1. To store the values in Array
   const inputValues = useSelector((state) => state.input.inputValues);
   const isdData =useSelector(state => state.isdData.isdData)
   
   const dispatch = useDispatch();
+
+  // 2. To receive values from the Input Form
   const [inputName, setInputName] = useState("");
   const [inputGender, setInputGender] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputCellNo, setInputCellNo] = useState("");
+  const [inputCountryCode, setInputCountryCode] = useState("");
   const [inputCheckBox, setInputCheckBox] = useState("");
 
+  // 3. To change the showBox into form and form to showBox
   const [changeToEdit, setChangeToEdit] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
 
+  // 4. To show err message if we enter wrong pattern of Email and cell number
   const [numErr, setNumErr] = useState(false);
-
+  const [mailErr, setMailErr] = useState(false);
+  
+  // 5. To handle Submit Function
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // 6. To show alert if any input field left empty
     if (!inputName || !inputGender || !inputEmail || !inputCellNo) {
       alert("Please fill in all the required fields.");
       return;
     }
 
+    // 7. To show alert if Privacy and Terms is unchecked
     if (!inputCheckBox) {
       alert("Please agree to the Terms & Conditions and Privacy Policy.");
       return;
     }
+
+    // 8. To check the length of cell Number
+    if (inputCellNo.length === 10) {
+      setNumErr(false);
+    } else {
+      setNumErr(true);
+      return;
+    }
+    setNumErr(false);
+
+    // 9. To check the pattern of Email Id
+    if (!validEmail.test(inputEmail)) {
+      setMailErr(true);
+      return;
+    } else {
+      setMailErr(false);
+    }
+
+    // 10. To call the action creator which is used to store Data
     dispatch(
       addInputValue({
         inputName,
@@ -60,42 +96,64 @@ const InputForm = ({ fetchIsdData }) => {
       })
     );
 
-    setInputName("hello");
+    // 11. To reset the form Empty
+    setInputName("");
+
     setInputGender("");
     setInputEmail("");
     setInputCellNo("");
     setInputCheckBox(false);
   };
+
+  // 12. To remove the data from the Array
   const handleDelete = (index) => {
     dispatch(removeInputValues(index));
   };
+
+  // 13. To receive values from the Update Form
+  const [updateName, setUpdateName] = useState("");
+  const [updateGender, setUpdateGender] = useState("");
+  const [updateEmail, setUpdateEmail] = useState("");
+  const [updateCellNo, setUpdateCellNo] = useState("");
+  const [updateCountryCode, setUpdateCountryCode] = useState("");
+  const [updateCheckBox, setUpdateCheckBox] = useState("");
+
+  // 14. To Edit the values
   const handleEdit = (index) => {
     setChangeToEdit(true);
     setEditIndex(index);
-    const { inputName, inputGender, inputEmail, inputCellNo, inputCheckBox } =
-      inputValues[index];
-    setInputName(inputName);
-    setInputGender(inputGender);
-    setInputEmail(inputEmail);
-    setInputCellNo(inputCellNo);
-    setInputCheckBox(inputCheckBox);
+    const {
+      inputName: updateName,
+      inputGender: updateGender,
+      inputEmail: updateEmail,
+      inputCellNo: updateCellNo,
+      inputCheckBox: updateCheckBox,
+    } = inputValues[index];
+
+    setUpdateName(updateName);
+    setUpdateGender(updateGender);
+    setUpdateEmail(updateEmail);
+    setUpdateCellNo(updateCellNo);
+    setUpdateCheckBox(updateCheckBox);
   };
+
+  // 15. To Update the values
   const handleUpdate = () => {
     dispatch(
       editInputValue(editIndex, {
-        inputName,
-        inputGender,
-        inputEmail,
-        inputCellNo,
-        inputCheckBox,
+        inputName: updateName,
+        inputGender: updateGender,
+        inputEmail: updateEmail,
+        inputCellNo: updateCellNo,
+        inputCheckBox: updateCheckBox,
       })
     );
 
-    setInputName("");
-    setInputGender("");
-    setInputEmail("");
-    setInputCellNo("");
-    setInputCheckBox(false);
+    setUpdateName("");
+    setUpdateGender("");
+    setUpdateEmail("");
+    setUpdateCellNo("");
+    setUpdateCheckBox(false);
     setChangeToEdit(false);
     setEditIndex(null);
   };
@@ -111,6 +169,8 @@ const InputForm = ({ fetchIsdData }) => {
   };
 
   return (
+    // 16. Input Form
+
     <div className="InputForm">
       <FormContainer>
         <h2>Input Form</h2>
@@ -124,7 +184,6 @@ const InputForm = ({ fetchIsdData }) => {
         <br />
         <RowDiv>
           <H4>Gender</H4>
-
           <input
             type="radio"
             value="Male"
@@ -150,6 +209,7 @@ const InputForm = ({ fetchIsdData }) => {
           value={inputEmail}
           onChange={(e) => setInputEmail(e.target.value)}
         />
+        {mailErr && <H6>Please Enter Valid Email Id</H6>}
         <RowDiv>
           <Select>
             {isdData && isdData.map((data,index) => (
@@ -163,10 +223,10 @@ const InputForm = ({ fetchIsdData }) => {
             placeholder="Enter Cell number"
             required
             value={inputCellNo}
-            onChange={handleChangeCellNo}
+            onChange={(e) => setInputCellNo(e.target.value)}
           />
         </RowDiv>
-        {numErr && <h6>Please Enter Valid Cell Num</h6>}
+        {numErr && <H6>Please Enter Valid Cell Num</H6>}
         <RowDiv>
           <input
             type="checkbox"
@@ -180,6 +240,9 @@ const InputForm = ({ fetchIsdData }) => {
           Submit
         </Button>
       </FormContainer>
+
+      {/* 17. To show update form when edit button is clicked */}
+
       <ListContainer>
         {inputValues.map((inputValue, index) => (
           <ListItem>
@@ -190,28 +253,26 @@ const InputForm = ({ fetchIsdData }) => {
                   type="text"
                   placeholder="Enter Name"
                   required
-                  value={inputName}
-                  onChange={(e) => setInputName(e.target.value)}
+                  value={updateName}
+                  onChange={(e) => setUpdateName(e.target.value)}
                 />{" "}
                 <br />
                 <RowDiv aria-required>
                   <H4>Gender</H4>
-
                   <input
                     type="radio"
                     value="Male"
                     name="gender"
-                    checked={inputGender === "Male"}
-                    onChange={() => setInputGender("Male")}
+                    checked={updateGender === "Male"}
+                    onChange={() => setUpdateGender("Male")}
                   />
                   <H4>Male</H4>
-
                   <input
                     type="radio"
                     value="Female"
                     name="gender"
-                    checked={inputGender === "Female"}
-                    onChange={() => setInputGender("Female")}
+                    checked={updateGender === "Female"}
+                    onChange={() => setUpdateGender("Female")}
                   />
                   <H4>Female</H4>
                 </RowDiv>
@@ -219,22 +280,23 @@ const InputForm = ({ fetchIsdData }) => {
                   type="email"
                   placeholder="Enter E-Mail Id"
                   required
-                  value={inputEmail}
-                  onChange={(e) => setInputEmail(e.target.value)}
+                  value={updateEmail}
+                  onChange={(e) => setUpdateEmail(e.target.value)}
                 />
                 <Input
                   type="tel"
                   maxLength={10}
                   placeholder="Enter Cell number"
                   required
-                  value={inputCellNo}
-                  onChange={(e) => setInputCellNo(e.target.value)}
+                  value={updateCellNo}
+                  onChange={(e) => setUpdateCellNo(e.target.value)}
                 />
                 <Button onClick={() => handleUpdate(index)}>Update</Button>
               </div>
             ) : (
+              // 18 . To show data from the Array
               <div key={index}>
-                <h4>Name: {inputValue.inputName}</h4>
+                <H2>Name: {inputValue.inputName}</H2>
                 <div>
                   <h4>Gender: {inputValue.inputGender}</h4>
                 </div>

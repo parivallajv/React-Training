@@ -25,4 +25,3 @@ export const editInputValue = (index, updatedValue) => {
     payload: { index, updatedValue },
   };
 };
-
