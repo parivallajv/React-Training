@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import {
   Input,
   FormContainer,
@@ -7,24 +7,26 @@ import {
   Button,
   ListItem,
   ListContainer,
-  h6,
   Select,
   CellNoInput,
 } from "../../styles";
-import isdCode from "./axios";
 import { useEffect, useState } from "react";
-
+import { fetchIsdData } from "./GetIsdData/IsdDataActions";
 import {
   addInputValue,
   removeInputValues,
   editInputValue,
 } from "./inputActions";
-import useFetch from "./axios";
-import axios from "axios";
 
-const InputForm = () => {
+const InputForm = ({ fetchIsdData }) => {
+  
+  useEffect(() => {
+    fetchIsdData();
+  }, []);
+
   const inputValues = useSelector((state) => state.input.inputValues);
-
+  const isdData =useSelector(state => state.isdData.isdData)
+  
   const dispatch = useDispatch();
   const [inputName, setInputName] = useState("");
   const [inputGender, setInputGender] = useState("");
@@ -36,8 +38,6 @@ const InputForm = () => {
   const [editIndex, setEditIndex] = useState(null);
 
   const [numErr, setNumErr] = useState(false);
-  const [mailErr, setMailErr] = useState(false);
-  const [passErr, setPassErr] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -60,7 +60,7 @@ const InputForm = () => {
       })
     );
 
-    setInputName("");
+    setInputName("hello");
     setInputGender("");
     setInputEmail("");
     setInputCellNo("");
@@ -109,12 +109,6 @@ const InputForm = () => {
       setNumErr(true);
     }
   };
-  const url =
-    "https://gist.githubusercontent.com/devhammed/78cfbee0c36dfdaa4fce7e79c0d39208/raw/07df5ed443941c504c65e81c83e6313473409d4c/countries.json";
-
-  const [isdCode, setIsdCode] = useState([]);
-
-  axios.get(url).then((res) => setIsdCode(res.data));
 
   return (
     <div className="InputForm">
@@ -158,13 +152,11 @@ const InputForm = () => {
         />
         <RowDiv>
           <Select>
-            {isdCode.map((data) => {
-              return (
-                <option>
-                  {data.dial_code} {data.flag}
-                </option>
-              );
-            })}
+            {isdData && isdData.map((data,index) => (
+              <option key={index}>
+                {data.dial_code} {data.flag}
+              </option>
+            ))}
           </Select>
           <CellNoInput
             type="number"
@@ -263,4 +255,18 @@ const InputForm = () => {
   );
 };
 
-export default InputForm;
+// 1. To get isdData from API
+
+const mapStateToProps = (state) => {
+  return {
+    isdData: state.isdData,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchIsdData: () => dispatch(fetchIsdData()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputForm);

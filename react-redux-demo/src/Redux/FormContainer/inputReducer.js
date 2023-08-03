@@ -1,9 +1,7 @@
 import {
   ADD_INPUT_VALUE,
   REMOVE_INPUT_VALUE,
-  CLEAR_INPUT_VALUES,
   EDIT_INPUT_VALUE,
-  GET_ISD_DATA,
 } from "./inputTypes";
 
 const initialState = {
@@ -23,11 +21,6 @@ const inputReducer = (state = initialState, action) => {
       return {
         ...state,
         inputValues: updatedInputValues,
-      };
-    case CLEAR_INPUT_VALUES:
-      return {
-        ...state,
-        inputValues: [],
       };
     case EDIT_INPUT_VALUE:
       const { index, updatedValue } = action.payload;

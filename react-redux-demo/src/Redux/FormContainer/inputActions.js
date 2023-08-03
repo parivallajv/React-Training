@@ -1,10 +1,8 @@
 
 import {
   ADD_INPUT_VALUE,
-  CLEAR_INPUT_VALUES,
   REMOVE_INPUT_VALUE,
   EDIT_INPUT_VALUE,
-  GET_ISD_DATA,
 } from "./inputTypes";
 
 export const addInputValue = (inputValue) => {
@@ -21,12 +19,6 @@ export const removeInputValues = (index) => {
   };
 };
 
-export const clearInputValues = () => {
-  return {
-    type: CLEAR_INPUT_VALUES,
-  };
-};
-
 export const editInputValue = (index, updatedValue) => {
   return {
     type: EDIT_INPUT_VALUE,
@@ -34,8 +26,3 @@ export const editInputValue = (index, updatedValue) => {
   };
 };
 
-export const getIsdData=()=>{
-  return{
-    type:GET_ISD_DATA,
-  }
-}
