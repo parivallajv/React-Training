@@ -35,11 +35,11 @@ export const fetchIsdData = () => {
     axios
       .get(url)
       .then((res) => {
-        const isdData = res.data;
+        const isdData = res?.data;
         dispatch(fetchIsdSuccess(isdData));
       })
       .catch((error) => {
-        const errMsg = error.message;
+        const errMsg = error?.message;
         dispatch(fetchIsdFailure(errMsg));
       });
   };

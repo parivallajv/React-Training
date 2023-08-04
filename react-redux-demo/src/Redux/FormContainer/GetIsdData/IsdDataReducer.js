@@ -16,14 +16,14 @@ const isdDataReducer = (state = initialState, action) => {
         case FETCH_ISD_SUCCESS:
         return {
           ...state,
-          isdData: action.payload,
+          isdData: action?.payload,
           error:''
         };
         case FETCH_ISD_FAILURE:
         return {
           ...state,
           isdData: [],
-          error:action.payload
+          error:action?.payload
         };
       default:
         return state;

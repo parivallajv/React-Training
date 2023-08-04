@@ -4,6 +4,7 @@ export const RowDiv = styled.div`
   text-decoration: none;
   width: 270px;
   display: flex;
+  align-items:baseline;
   flex-direction: row;
   justify-content: space-around;
 `;
@@ -20,7 +21,7 @@ export const H2 = styled.h2`
 export const H4 = styled.h2`
   font-size: 15px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 `;
 
 export const H1 = styled.h1`
@@ -31,7 +32,7 @@ export const H1 = styled.h1`
   margin-bottom: 20px;
 `;
 
-export const Button = styled.button`
+export const BlueButton = styled.button`
   padding: 10px 20px;
   width: 70px;
   text-align: center;
@@ -153,7 +154,7 @@ export const H6 = styled.h6`
 `;
 
 export const Select = styled.select`
-  width: 30%;
+  width: 35%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;

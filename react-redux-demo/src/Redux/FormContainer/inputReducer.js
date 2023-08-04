@@ -9,22 +9,22 @@ const initialState = {
 };
 
 const inputReducer = (state = initialState, action) => {
-  switch (action.type) {
+  switch (action?.type) {
     case ADD_INPUT_VALUE:
       return {
         ...state,
-        inputValues: [...state.inputValues, action.payload],
+        inputValues: [...state?.inputValues, action?.payload],
       };
     case REMOVE_INPUT_VALUE:
-      const updatedInputValues = [...state.inputValues];
-      updatedInputValues.splice(action.payload, 1);
+      const updatedInputValues = [...state?.inputValues];
+      updatedInputValues.splice(action?.payload, 1);
       return {
         ...state,
         inputValues: updatedInputValues,
       };
     case EDIT_INPUT_VALUE:
-      const { index, updatedValue } = action.payload;
-      const editedInputValues = [...state.inputValues];
+      const { index, updatedValue } = action?.payload;
+      const editedInputValues = [...state?.inputValues];
       editedInputValues[index] = updatedValue;
       return {
         ...state,

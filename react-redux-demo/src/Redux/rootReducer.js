@@ -5,8 +5,8 @@ import inputReducer from "./FormContainer/inputReducer";
 import isdDataReducer from "./FormContainer/GetIsdData/IsdDataReducer";
 
 const rootReducer = combineReducers({
-  // cake: cakeReducer,
-  // ice: iceReducer,
+  cake: cakeReducer,
+  ice: iceReducer,
   input:inputReducer,
   isdData:isdDataReducer
 });
