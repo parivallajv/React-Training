@@ -1,41 +1,9 @@
 {
   "products": [
     {
-      "id": 18,
-      "title": "Oil Free Moisturizer 100ml",
-      "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
-      "price": 40,
-      "discountPercentage": 13.1,
-      "rating": 4.56,
-      "stock": 88,
-      "brand": "Dermive",
-      "category": "skincare",
-      "thumbnail": "https://i.dummyjson.com/data/products/18/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/18/1.jpg",
-        "https://i.dummyjson.com/data/products/18/2.jpg",
-        "https://i.dummyjson.com/data/products/18/3.jpg",
-        "https://i.dummyjson.com/data/products/18/4.jpg",
-        "https://i.dummyjson.com/data/products/18/thumbnail.jpg"
-      ]
-    },
-    {
-      "id": 19,
-      "title": "Skin Beauty Serum.",
-      "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
-      "price": 46,
-      "discountPercentage": 10.68,
-      "rating": 4.42,
-      "stock": 54,
-      "brand": "ROREC White Rice",
-      "category": "skincare",
-      "thumbnail": "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/19/1.jpg",
-        "https://i.dummyjson.com/data/products/19/2.jpg",
-        "https://i.dummyjson.com/data/products/19/3.png",
-        "https://i.dummyjson.com/data/products/19/thumbnail.jpg"
-      ]
+      "title": "sunScreen",
+      "thumbnail": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      "id": 18
     },
     {
       "id": 20,
@@ -223,6 +191,11 @@
         "https://i.dummyjson.com/data/products/29/4.webp",
         "https://i.dummyjson.com/data/products/29/thumbnail.webp"
       ]
+    },
+    {
+      "title": "apple",
+      "thumbnail": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+      "id": 30
     }
   ]
 }
