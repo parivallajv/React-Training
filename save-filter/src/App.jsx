@@ -16,8 +16,8 @@ function App() {
           <h4>
             <Link to="/">Home Page</Link>
           </h4>
-          <h4>
-            <Link to="/filterPage">Filter Page</Link>
+          <h4 >
+            <Link class="filter-page-link" to="/filterPage">Filter Page</Link>
           </h4>
         </nav>
         {isAuth ? (
