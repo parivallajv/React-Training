@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import ProtectedRoutes from "./ProtectedRoutes";
 import useAuth from "./useAuth";
 import { Button } from "antd";
+import HomePage from './Components/HomePage'
 
 function App() {
   const [isAuth, login, logout] = useAuth(false);
@@ -14,7 +15,7 @@ function App() {
       <Router>
         <nav>
           <h4>
-            <Link to="/">Home Page</Link>
+            <Link to="/home">Home Page</Link>
           </h4>
           <h4 >
             <Link class="filter-page-link" to="/filterPage">Filter Page</Link>
@@ -37,6 +38,7 @@ function App() {
         )}
         <Routes>
           {/* <Route path="/" exact element={HomePage} /> */}
+          <Route element={<HomePage/>} path="/home"></Route>
           <Route element={<ProtectedRoutes isAuth={isAuth} />}>
             <Route element={<ProtectedPage />} path="/filterPage" />
           </Route>

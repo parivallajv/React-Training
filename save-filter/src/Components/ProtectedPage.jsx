@@ -120,6 +120,7 @@ const ProtectedPage = () => {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
+        <div>
         <p>Filter By Hierarchy</p>
         <Select
           placeholder="Filter By Hierarchy"
@@ -132,6 +133,8 @@ const ProtectedPage = () => {
           <Option value="Mid South">Mid Atlantic</Option>
           <Option value="Mid South">Mid America</Option>
         </Select>
+        </div>
+        <div>
         <p>Category</p>
         <Select
           defaultValue="Show All"
@@ -144,6 +147,8 @@ const ProtectedPage = () => {
           <Option value="Region">Region</Option>
           <Option value="Branch">Branch</Option>
         </Select>
+        </div>
+        <div>
         <p>Profile</p>
         <Select
           defaultValue="Show All"
@@ -155,6 +160,8 @@ const ProtectedPage = () => {
           <Option value="Unpublished">Unpublished</Option>
           <Option value="Published">Published</Option>
         </Select>
+        </div>
+        <div>
         <p>Status</p>
         <Select
           defaultValue="Show All"
@@ -167,6 +174,7 @@ const ProtectedPage = () => {
           <Option value="Deactivated">Deactivated</Option>
           <Option value="Newly Created">Newly Created</Option>
         </Select>
+        </div>
         <p>Columns</p>
         <Checkbox
           style={{ width: 300 }}
