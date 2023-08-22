@@ -9,10 +9,16 @@ import {
   AlignCenter,
   AlignCenterDate,
   CampName,
+  CheckBoxLogoDiv,
   CheckBoxSt,
   ColumnName,
   ColumnName1,
   ColumnName2,
+  ColumnName3,
+  ColumnName4,
+  ColumnName5,
+  ColumnName6,
+  ColumnName7,
   ColumnTitle,
   ColumnTitle1,
   DateStyle,
@@ -20,7 +26,9 @@ import {
   HeaderDiv,
   HeaderFont,
   MainContainer,
+  ProgressDiv,
   RateText,
+  SingleStarDiv,
   SortLogoDiv,
   StarDiv,
   StarRate,
@@ -34,12 +42,7 @@ const CampaignTable = () => {
   const dataSource = [
     {
       key: "1",
-      name: (
-        <CheckBoxSt>
-          <CheckBoxLogo />
-          <CampName>Application Campaign</CampName>
-        </CheckBoxSt>
-      ),
+      name: "Application Campaign",
       completionRate: 100,
       averageScore: 2.2,
       status: "Active",
@@ -49,12 +52,7 @@ const CampaignTable = () => {
     },
     {
       key: "2",
-      name: (
-        <CheckBoxSt>
-          <CheckBoxLogo />
-          <CampName>Check In Survey</CampName>
-        </CheckBoxSt>
-      ),
+      name: "Check In Survey",
       completionRate: 10,
       stroke: "red",
       averageScore: 4.8,
@@ -65,12 +63,7 @@ const CampaignTable = () => {
     },
     {
       key: "3",
-      name: (
-        <CheckBoxSt>
-          <CheckBoxLogo />
-          <CampName>Employee Satisfaction Campaign</CampName>
-        </CheckBoxSt>
-      ),
+      name: "Employee Satisfaction Campaign",
       completionRate: 60,
       averageScore: 3.3,
       status: "Active",
@@ -80,12 +73,7 @@ const CampaignTable = () => {
     },
     {
       key: "4",
-      name: (
-        <CheckBoxSt>
-          <CheckBoxLogo />
-          <CampName>Email Campaign</CampName>
-        </CheckBoxSt>
-      ),
+      name: "Email Campaign",
       completionRate: 90,
       averageScore: 4.2,
       status: "Active",
@@ -95,12 +83,7 @@ const CampaignTable = () => {
     },
     {
       key: "5",
-      name: (
-        <CheckBoxSt>
-          <CheckBoxLogo />
-          <CampName>Team Engagement Survey</CampName>
-        </CheckBoxSt>
-      ),
+      name: "Team Engagement Survey",
       completionRate: 85,
       averageScore: 3.7,
       status: "Active",
@@ -110,12 +93,7 @@ const CampaignTable = () => {
     },
     {
       key: "6",
-      name: (
-        <CheckBoxSt>
-          <CheckBoxLogo />
-          <CampName>Application Campaign</CampName>
-        </CheckBoxSt>
-      ),
+      name: "Application Campaign",
       completionRate: 95,
       averageScore: 5,
       status: "Active",
@@ -125,12 +103,7 @@ const CampaignTable = () => {
     },
     {
       key: "7",
-      name: (
-        <CheckBoxSt>
-          <CheckBoxLogo />
-          <CampName>Check In Survey</CampName>
-        </CheckBoxSt>
-      ),
+      name: "Check In Survey",
       completionRate: 30,
       averageScore: 4.0,
       status: "Active",
@@ -144,10 +117,8 @@ const CampaignTable = () => {
     {
       title: (
         <ColumnTitle>
-          <CheckBoxSt>
-            <CheckBoxLogo />
-            <ColumnName1>Name</ColumnName1>
-          </CheckBoxSt>
+          <ColumnName1>Name</ColumnName1>
+
           <SortLogoDiv>
             <SortLogo />
           </SortLogoDiv>
@@ -157,43 +128,67 @@ const CampaignTable = () => {
       key: "col1",
       render: (dataIndex) => (
         <div>
-          <div>{dataIndex}</div>
+          <CampName>{dataIndex}</CampName>
           <NameRow />
         </div>
       ),
     },
     {
-      title: <ColumnName2>Completion Rate</ColumnName2>,
+      title: (
+        <ColumnTitle1>
+          <ColumnName2>Completion Rate</ColumnName2>
+        </ColumnTitle1>
+      ),
       dataIndex: "completionRate",
       key: "col2",
       render: (dataIndex) => (
         <div>
           <RateText>{`${dataIndex}%`}</RateText>
-          <Progress
-            percent={dataIndex}
-            showInfo={false}
-            strokeColor={dataIndex > 60 ? "" : "red"}
-          />
+          <ProgressDiv>
+            <Progress
+              percent={dataIndex}
+              showInfo={false}
+              strokeColor={dataIndex > 60 ? "" : "red"}
+            />
+          </ProgressDiv>
         </div>
       ),
     },
     {
-      title: <ColumnName2>Average Score</ColumnName2>,
+      title: (
+        <ColumnTitle1>
+          <ColumnName3>Average Score</ColumnName3>
+        </ColumnTitle1>
+      ),
       dataIndex: "averageScore",
       key: "col3",
       render: (dataIndex) => (
         <StarDiv>
-          <FullStar />
-          <FullStar />
-          <FullStar />
-          <HalfStar />
-          <EmptyStar />
+          <SingleStarDiv>
+            <FullStar />
+          </SingleStarDiv>
+          <SingleStarDiv>
+            <FullStar />
+          </SingleStarDiv>
+          <SingleStarDiv>
+            <FullStar />
+          </SingleStarDiv>
+          <SingleStarDiv>
+            <HalfStar />
+          </SingleStarDiv>
+          <SingleStarDiv>
+            <EmptyStar />
+          </SingleStarDiv>
           <StarText>{dataIndex}</StarText>
         </StarDiv>
       ),
     },
     {
-      title: <ColumnName2>Status</ColumnName2>,
+      title: (
+        <ColumnTitle1>
+          <ColumnName4>Status</ColumnName4>
+        </ColumnTitle1>
+      ),
       dataIndex: "status",
       key: "col4",
       render: (dataIndex) => (
@@ -205,7 +200,7 @@ const CampaignTable = () => {
     {
       title: (
         <ColumnTitle1>
-          <ColumnName2>Last Modified</ColumnName2>
+          <ColumnName5>Last Modified</ColumnName5>
           <SortLogoDiv>
             <SortLogo />
           </SortLogoDiv>
@@ -218,7 +213,7 @@ const CampaignTable = () => {
     {
       title: (
         <ColumnTitle1>
-          <ColumnName2>Last Activated</ColumnName2>
+          <ColumnName6>Last Activated</ColumnName6>
           <SortLogoDiv>
             <SortLogo />
           </SortLogoDiv>
@@ -229,12 +224,15 @@ const CampaignTable = () => {
       render: (dataIndex) => <AlignCenterDate>{dataIndex}</AlignCenterDate>,
     },
     {
-      title: <ColumnName2>Actions</ColumnName2>,
+      title: (
+        <ColumnTitle1>
+          <ColumnName7>Actions</ColumnName7>
+        </ColumnTitle1>
+      ),
       dataIndex: "actions",
       key: "col7",
       render: () => (
         <AlignCenter>
-            
           <ActionsLogo />
         </AlignCenter>
       ),
@@ -251,7 +249,12 @@ const CampaignTable = () => {
           </HeaderActions>
         </HeaderDiv>
 
-        <Table dataSource={dataSource} columns={columns} pagination={true} />
+        <Table
+          dataSource={dataSource}
+          columns={columns}
+          pagination={true}
+          style={{ border: "none" }}
+        />
       </MainContainer>
     </div>
   );
