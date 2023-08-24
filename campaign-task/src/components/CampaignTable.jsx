@@ -143,7 +143,7 @@ const CampaignTable = () => {
       key: "col2",
       render: (dataIndex) => (
         <div>
-          <RateText>{`${dataIndex}%`}</RateText>
+          <RateText style={{paddingLeft:`${dataIndex}px`}}>{`${dataIndex}%`}</RateText>
           <ProgressDiv>
             <Progress
               percent={dataIndex}

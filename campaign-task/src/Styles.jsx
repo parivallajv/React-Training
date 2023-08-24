@@ -243,7 +243,7 @@ export const RateText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-left: 70%;
+  // margin-left: 70%;
 `;
 
 export const DateStyle = styled.div`
