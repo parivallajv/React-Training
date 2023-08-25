@@ -1,14 +1,15 @@
+import React from "react";
 import ProtectedPage from "./Components/ProtectedPage";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-// import { HomePage } from "./Components/HomePage";
 import ProtectedRoutes from "./ProtectedRoutes";
-import useAuth from "./useAuth";
 import { Button, Card, Input } from "antd";
 import HomePage from "./Components/HomePage";
 import { Card2, RowDiv } from "./StyledComponents";
+import useAuth from "./useAuth";
+import useAuth2 from "./useAuth2";
 
-function App() {
-  const [isAuth, login, logout] = useAuth(false);
+const App = () => {
+  const [isAuth, login, logout] = useAuth2(false);
 
   return (
     <div className="App">
@@ -36,9 +37,9 @@ function App() {
           <>
             <Card2>
               <div>You are logged out..</div>
-              <Input type="text" placeholder="Email" />
-              <Input type="text" placeholder="Password" />
-              <Button type="primary" onClick={login}>
+              <Input type="text" className="mailId" placeholder="Email" />
+              <Input type="text" id="pass" placeholder="Password" />
+              <Button type="primary" onClick={login} className="loginBtn">
                 Login
               </Button>
             </Card2>
@@ -46,7 +47,6 @@ function App() {
         )}
 
         <Routes>
-          {/* <Route path="/" exact element={HomePage} /> */}
           <Route element={<HomePage />} path="/home"></Route>
           <Route element={<ProtectedRoutes isAuth={isAuth} />}>
             <Route element={<ProtectedPage />} path="/filterPage" />
@@ -55,6 +55,6 @@ function App() {
       </Router>
     </div>
   );
-}
+};
 
 export default App;

@@ -21,7 +21,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress": "cypress open",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint src"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^10.1.0",
     "cypress": "^12.17.4",
     "eslint-plugin-cypress": "^2.14.0",
     "husky": "^8.0.3",
