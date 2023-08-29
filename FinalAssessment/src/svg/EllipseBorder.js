@@ -1,4 +1,6 @@
-const EllipseBorder = () => {
+import React from "react";
+
+const EllipseBorder = ({ imageUrl }) => {
   return (
     <div>
       <svg
@@ -9,6 +11,21 @@ const EllipseBorder = () => {
         fill="none"
       >
         <circle cx="54.48" cy="54" r="53.5" fill="white" stroke="#E4E7EA" />
+
+        <defs>
+          <clipPath id="circle-clip">
+            <ellipse cx="54.48" cy="54" rx="49.09" ry="48" />
+          </clipPath>
+        </defs>
+
+        <image
+          x="-30.91"
+          y="-20.91"
+          width="160%"
+          height="140%"
+          href={imageUrl}
+          clipPath="url(#circle-clip)"
+        />
       </svg>
     </div>
   );
