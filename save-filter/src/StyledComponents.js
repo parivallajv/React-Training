@@ -10,6 +10,7 @@ export const Card2 = styled(Card)`
   width: 300px;
   display:flex;
   flex-direction:column;
+  left-margin:40%;
   
 `;
 

@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { Graph, UserData } from "../components/Graph";
+import {
+  ChartHeader,
+  ChartLayout,
+  Footer,
+  HeaderFont,
+  PeriodNav,
+  PeriodText,
+} from "../ChartStyle";
 const ChartComponent = () => {
   const [userData, setUserData] = useState({
     labels: [
+      null,
       "01 Feb",
       "03 Feb",
       "06 Feb",
@@ -11,30 +20,48 @@ const ChartComponent = () => {
       "15 Feb",
       "18 Feb",
       "21 Feb",
-      "24 Jan",
-      "27 Jan",
+      "24 Feb",
+      "27 Feb",
     ],
     datasets: [
       {
-        label: "datas graph2",
-        data: [
-          null,
-          1000,
-          1000,
-          1200,
-          1400,
-          1800,
-          2200,
-          2600,
-          3200,
-          3800,
-          5000,
-        ],
-        borderColor: "rgb(53, 162, 235)",
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        label: null,
+        data: [300,250, 245, 240, 220, 210, 205, 200, 190, 180, 145,50].reverse(),
+        borderColor: "#3D7AB6",
+        backgroundColor: "#3D7AB6",
+        tension: -0.1,
+        reverse: true,
       },
     ],
   });
-  return <Graph chartData={userData} />;
+
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: false, // Start y-axis at the lowest data value
+        stepSize: 50, 
+        reverse: true, 
+      },
+    },
+  };
+
+  return (
+    <div>
+      {" "}
+      <ChartHeader>
+        <HeaderFont>Rank Overview</HeaderFont>
+        <PeriodNav>
+          <PeriodText>Week</PeriodText>
+          <PeriodText>Month</PeriodText>
+          <PeriodText>Quarter</PeriodText>
+          <PeriodText>Year</PeriodText>
+        </PeriodNav>
+      </ChartHeader>
+      <ChartLayout>
+        <Graph chartData={userData} options={options}/>
+      </ChartLayout>
+      <Footer></Footer>
+    </div>
+  );
 };
 export default ChartComponent;

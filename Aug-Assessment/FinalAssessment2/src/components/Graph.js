@@ -1,10 +1,10 @@
 import React from 'react'
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJs } from "chart.js/auto";
-export const Graph=({chartData})=> {
+export const Graph=({chartData,options})=> {
   return (
     <div>
-        <Line data={chartData}/>
+        <Line data={chartData} options={options}/>
     </div>
   )
 }
@@ -40,15 +40,9 @@ export const UserData=[
         users2:6500,
     },
     {
-        id:5,
+        id:6,
         year:'11 Jan',
         users1:8000,
         users2:7000,
-    },
-    {
-        id:5,
-        year:'Today',
-        users1:6500,
-        users2:0,
-    },
+    }
 ]

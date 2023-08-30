@@ -39,6 +39,9 @@ import {
 import XpLogo from "../svg/XpLogo";
 import ChevronRight from "../svg/ChevronRight";
 import GreenProgress from "../svg/Greenprogress";
+import BlueProgress from "../svg/BlueProgress";
+import VioletProgress from "../svg/VioletProgress";
+import CyanProgress from "../svg/CyanProgress";
 
 const ScoreSection = () => {
   return (
@@ -114,7 +117,7 @@ const ScoreSection = () => {
               <MiniCardText>recent</MiniCardText>
             </MiniCardFlex2>
             <GreenProgressDiv>
-              <GreenProgress />
+              <BlueProgress />
             </GreenProgressDiv>
           </MiniCard>
 
@@ -130,7 +133,7 @@ const ScoreSection = () => {
               <MiniCardText>reviews need replies</MiniCardText>
             </MiniCardFlex2>
             <GreenProgressDiv>
-              <GreenProgress />
+              <VioletProgress />
             </GreenProgressDiv>
           </MiniCard>
 
@@ -148,7 +151,7 @@ const ScoreSection = () => {
               <MiniCardText>connections</MiniCardText>
             </MiniCardFlex2>
             <GreenProgressDiv>
-              <GreenProgress />
+              <CyanProgress />
             </GreenProgressDiv>
           </MiniCard>
         </MiniCardsLayout>
