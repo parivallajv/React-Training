@@ -34,7 +34,6 @@ export const XpLogoBorder = styled.div`
 
 export const ScoreText = styled.div`
   color: var(--grey-100, #485c72);
-  font-family: SF Pro Display;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -45,7 +44,6 @@ export const ScoreText = styled.div`
 
 export const ScoreNum = styled.div`
   color: var(--blue-s-30, #134576);
-  font-family: SF Pro Display;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -61,19 +59,18 @@ export const Header = styled.div`
 
 export const SearchFont = styled.div`
   color: var(--grey-t-15, #637487);
-  font-family: SF Pro Display;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  width: 106.908px;
+  width: 112.908px;
 
   margin-top: 23px;
 `;
 
 export const ScoreNumLarge = styled.div`
   color: var(--blue-s-20, #164f87);
-  font-family: SF Pro Display;
+
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -185,7 +182,7 @@ export const CyanDot = styled.div`
 
 export const LegendFont = styled.div`
   color: var(--grey-t-15, #637487);
-  font-family: SF Pro Display;
+
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
@@ -195,7 +192,7 @@ export const LegendFont = styled.div`
 
 export const NoteTitle = styled.span`
   color: var(--grey-100, #485c72);
-  font-family: SF Pro Display;
+
   font-size: 15px;
   font-style: normal;
   font-weight: 700;
@@ -204,7 +201,6 @@ export const NoteTitle = styled.span`
 
 export const NoteFont = styled.span`
   color: var(--grey-100, #485c72);
-  font-family: SF Pro Display;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -248,7 +244,6 @@ export const MiniCardFlex2 = styled.div`
 
 export const MiniCardTitle = styled.div`
   color: var(--grey-s-30, #324050);
-  font-family: SF Pro Display;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -269,7 +264,6 @@ export const ChevronRightBorder = styled.div`
 
 export const MiniCardFontNum = styled.div`
   color: var(--blue-s-30, #134576);
-  font-family: SF Pro Display;
   font-size: 15px;
   font-style: normal;
   font-weight: 600;
@@ -279,7 +273,6 @@ export const MiniCardFontNum = styled.div`
 
 export const MiniCardText = styled.div`
   color: var(--grey-t-15, #637487);
-  font-family: SF Pro Display;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -290,7 +283,6 @@ export const MiniCardText = styled.div`
 
 export const MiniCardNumLight = styled.div`
   color: var(--grey-t-15, #637487);
-  font-family: SF Pro Display;
   font-size: 15px;
   font-style: normal;
   font-weight: 600;

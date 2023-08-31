@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import Award from "./svg/Award";
 
 export const MainContainer = styled.div`
-  // font-family: "SF Pro Display", sans-serif;
+  font-family: "SF Pro Display", sans-serif;
 `;
 
 export const ProfileCardContainer = styled.div`
@@ -80,7 +79,6 @@ export const ImageDiv = styled.img`
 
 export const ProfName = styled.p`
   color: var(--blue-100, #1b63a9);
-  font-family: SF Pro Display;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -90,11 +88,11 @@ export const ProfName = styled.p`
 
 export const RoleName = styled.p`
   color: var(--grey-100, #485c72);
-  font-family: SF Pro Display;
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  width: 100%;
   margin: 6px 0px 0px 14px;
 `;
 
@@ -113,7 +111,6 @@ export const RatingText = styled.div`
 
   color: #fff;
   text-align: center;
-  font-family: SF Pro Display;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -127,6 +124,10 @@ export const FlexRow = styled.div`
   margin: 18px 0px 0px 14px;
 `;
 
+export const FlexRowMain = styled.div`
+  display: flex;
+`;
+
 export const StarDiv = styled.div`
   display: flex;
   gap: 4px;
@@ -135,7 +136,6 @@ export const StarDiv = styled.div`
 
 export const ReviewCount = styled.div`
   color: var(--grey-t-15, #637487);
-  font-family: SF Pro Display;
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -156,13 +156,12 @@ export const PlaceSubDivision = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 0px 0px 15px 0px;
+  margin: 0px 0px 15px -24px;
 `;
 
 export const LocationFont = styled.div`
   color: var(--grey-t-35, #8895a3);
   text-align: right;
-  font-family: SF Pro Display;
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
@@ -171,7 +170,7 @@ export const LocationFont = styled.div`
 
 export const LocationName = styled.div`
   color: var(--grey-100, #485c72);
-  font-family: SF Pro Display;
+
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
@@ -191,7 +190,7 @@ export const CountBox = styled.div`
   flex-shrink: 0;
 
   color: var(--blue-100, #1b63a9);
-  font-family: SF Pro Display;
+
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
@@ -218,7 +217,6 @@ export const LabelText = styled.p`
   width: 52px;
   color: #fff;
   text-align: center;
-  font-family: SF Pro Display;
   font-size: 11px;
   font-style: normal;
   font-weight: 600;
@@ -268,7 +266,7 @@ export const SearchLogo = styled.div`
 
 export const RankFont = styled.p`
   color: #5f3ea4;
-  font-family: SF Pro Display;
+
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -280,9 +278,8 @@ export const SearchFont = styled(RankFont)`
 `;
 
 export const RankText = styled.p`
-  width: 402px;
+  width: 410px;
   color: var(--grey-100, #485c72);
-  font-family: SF Pro Display;
   font-size: 13px;
   font-style: normal;
   font-weight: 500;

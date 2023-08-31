@@ -1,4 +1,4 @@
-import { MainContainer } from "../ProfileStyles";
+import { MainContainer } from "../styles/ProfileStyles";
 import {
   Header,
   ScoreCard,
@@ -23,8 +23,6 @@ import {
   Note,
   NoteTitle,
   NoteFont,
-  MiniCards,
-  ProfileCard,
   MiniCardTitle,
   ChevronRightBorder,
   MiniCardsLayout,
@@ -35,7 +33,7 @@ import {
   MiniCardFlex2,
   GreenProgressDiv,
   MiniCardNumLight,
-} from "../ScoreStyles";
+} from "../styles/ScoreStyles";
 import XpLogo from "../svg/XpLogo";
 import ChevronRight from "../svg/ChevronRight";
 import GreenProgress from "../svg/Greenprogress";

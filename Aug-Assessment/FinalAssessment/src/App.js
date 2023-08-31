@@ -1,7 +1,7 @@
-/* eslint-disable no-sequences */
+
 import Banner from "./components/Banner";
 import PersonalInfo from "./components/PersonalInfo";
-import { MainContainer, RightBanner } from "./styles";
+import { MainContainer } from "./styles";
 
 function App() {
   return (

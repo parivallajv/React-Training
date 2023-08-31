@@ -7,7 +7,7 @@ import {
   BrowserDivContainer,
   DotEllipseDiv,
   DownArrowDiv,
-  EditCircleInnerSt,
+  CircleInnerSt,
   EditCircleOuterSt,
   EditLogoDiv,
   FlexColumn,
@@ -21,9 +21,9 @@ import {
   StarDiv,
   UserLocation,
   UserName,
-  XpShadowLayout
-} from "../styles";
-import BrowserBorder from "../svg/BrowserBorder";
+  XpShadowLayout,
+} from "../styles.js";
+import BrowserBorder from "../svg/BrowserBorder.js";
 import BrowserDivider from "../svg/BrowserDivider";
 import DotEllipse from "../svg/DotEllipse";
 import ExperienceLogoSmall from "../svg/ExperienceLogoSmall";
@@ -37,6 +37,7 @@ import EditCircleOuter from "../svg/EditCircleOuter";
 import EditCircleInner from "../svg/EditCircleInner";
 import EditLogo from "../svg/EditLogo";
 import RightXpShadow from "../svg/RightXpShadow";
+import ReviewSection from "./BannerSection/ReviewSection.js";
 
 const Banner = () => {
   return (
@@ -79,27 +80,8 @@ const Banner = () => {
           </DownArrowDiv>
         </AgentCard>
 
-        <ReviewCard>
-          <AvatarBorder />
-          <SLetter>S</SLetter>
-          <UserName>Shauna M</UserName>
-          <UserLocation>Pawnee, IL</UserLocation>
-          <ReviewFont>
-            North Pacific was amazing and helped keep me up to date on all
-            developments...
-          </ReviewFont>
-        </ReviewCard>
-        <EditCircleOuterSt>
-          <EditCircleOuter />
-        </EditCircleOuterSt>
-
-        <EditCircleInnerSt>
-          <EditCircleInner />
-        </EditCircleInnerSt>
-        <EditLogoDiv>
-          <EditLogo />
-        </EditLogoDiv>
-        
+        <ReviewSection />
+       
       </RightBanner>
     </div>
   );

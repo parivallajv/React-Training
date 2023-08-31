@@ -1,7 +1,6 @@
 import {
   CardLayout,
   EmailFont,
-  ImageDiv,
   LeftDivision,
   NameFont,
   PlaceAnswer,
@@ -9,8 +8,8 @@ import {
   PlaceTitle,
   RightDivision,
   RoleNameFont,
-} from "../styles";
-import EllipseBorder from "../svg/EllipseBorder";
+} from "../../styles";
+import EllipseBorder from "../../svg/EllipseBorder";
 
 const ProfileCard = ({ name, imageUrl, bgColor }) => {
   return (

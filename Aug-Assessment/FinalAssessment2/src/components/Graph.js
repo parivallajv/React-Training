@@ -1,48 +1,31 @@
-import React from 'react'
+import React from "react";
 import { Line } from "react-chartjs-2";
-import { Chart as ChartJs } from "chart.js/auto";
-export const Graph=({chartData,options})=> {
+import { GraphDiv } from "../styles/ChartStyle";
+export const Graph = ({ chartData }) => {
+  const options = {
+    scales: {
+      x: {
+        beginAtZero: false,
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        beginAtZero: false,
+        reverse: true,
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+        position: "top",
+      },
+    },
+    tension: 0.1,
+  };
   return (
-    <div>
-        <Line data={chartData} options={options}/>
-    </div>
-  )
-}
-export const UserData=[
-    {
-        id:1,
-        year:'06 Jan',
-        users1:0,
-        users2:3000,
-    },
-    {
-        id:2,
-        year:'07 Jan',
-        users1:2000,
-        users2:5000,
-    },
-    {
-        id:3,
-        year:'08 Jan',
-        users1:0,
-        users2:2000,
-    },
-    {
-        id:4,
-        year:'09 Jan',
-        users1:5000,
-        users2:6000,
-    },
-    {
-        id:5,
-        year:'10 Jan',
-        users1:8000,
-        users2:6500,
-    },
-    {
-        id:6,
-        year:'11 Jan',
-        users1:8000,
-        users2:7000,
-    }
-]
+    <GraphDiv className="sample">
+      <Line data={chartData} options={options} />
+    </GraphDiv>
+  );
+};

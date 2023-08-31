@@ -26,14 +26,14 @@ import {
   SearchFont,
   SearchLogo,
   StarDiv,
-} from "../ProfileStyles";
+} from "../styles/ProfileStyles";
 import Award from "../svg/Award";
 import AwardCircle from "../svg/AwardCircle";
 import Label from "../svg/Label";
 import Star from "../svg/Star";
 import person from "../Images/person.jpeg";
-import Search from '../svg/Search';
-import SearchCircle from '../svg/SearchCircle'
+import Search from "../svg/Search";
+import SearchCircle from "../svg/SearchCircle";
 
 const ProfileSection = () => {
   return (

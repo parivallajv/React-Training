@@ -18,7 +18,7 @@ export const HeaderDivision = styled.div`
 `;
 export const HeaderFont = styled.span`
   color: var(--grey-s-30, #324050);
-  //  
+  //
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -27,7 +27,7 @@ export const HeaderFont = styled.span`
 
 export const GreyHighLighter = styled.span`
   color: var(--grey-t-35, #8895a3);
-  //  
+  //
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -53,7 +53,7 @@ export const SearchInput = styled(Input)`
   color: var(--grey-t-50, #a3adb8);
 
   /* Regular / 14px | 22px */
-   
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -84,7 +84,7 @@ export const ImageDivision = styled.image`
 
 export const NameFont = styled.p`
   color: var(--blue-100, #1b63a9);
-  //  
+  //
   font-size: 18px;
   margin-top: -7px;
   font-style: normal;
@@ -104,7 +104,7 @@ export const RoleNameFont = styled.p`
   color: var(--grey-100, #485c72);
   margin-top: -12px;
   margin-bottom: 0px;
-   
+
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -119,7 +119,7 @@ export const PlaceLayout = styled.div`
 export const PlaceTitle = styled.span`
   margin-top: 9px;
   color: var(--grey-t-35, #8895a3);
-   
+
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -128,7 +128,7 @@ export const PlaceTitle = styled.span`
 
 export const PlaceAnswer = styled.span`
   color: var(--grey-100, #485c72);
-   
+
   margin-top: 9px;
   font-size: 13px;
   font-style: normal;
@@ -140,7 +140,7 @@ export const EmailDivision = styled.div``;
 export const EmailFont = styled.p`
   color: var(--grey-100, #485c72);
   margin-top: 10px;
-   
+
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
@@ -152,13 +152,13 @@ export const LoadMoreFont = styled.p`
 
   color: var(--blue-100, #1b63a9);
   text-align: center;
-   
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 
-  // margin: 0;
+  margin: 0px 0px 0px 0px;
 `;
 
 export const LoadMoreDivision = styled.div`
@@ -185,7 +185,7 @@ export const ClaimBoxLayout = styled.div`
 
 export const ClaimBoxFont = styled.p`
   color: var(--blue-100, #1b63a9);
-   
+
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -206,7 +206,7 @@ export const SeparatorDiv = styled.div`
   width: 412px;
   margin: 0;
   margin-left: 130px;
-  margin-top: 25px;
+  margin-top: 30px;
   gap: 8px;
   height: 17px;
 
@@ -218,14 +218,14 @@ export const SeparatorText = styled.p`
   color: var(--grey-t-15, #637487);
   width: 19.507px;
   text-align: center;
-   
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 `;
 
-export const CreateProfileDiv = styled.div`
+export const CreateProfileBtn = styled.div`
   margin-left: 130px;
   margin-top: 30px;
 
@@ -241,7 +241,7 @@ export const CreateProfileDiv = styled.div`
   background: #275f98;
 
   color: #fff;
-   
+
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -279,9 +279,9 @@ export const RightBanner = styled.div`
 export const MainContainer = styled.div`
   display: flex;
   width: 100vw;
-  overflow:hidden;
+  overflow: hidden;
   box-sizing: border-box;
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: "SF Pro Display", sans-serif;
 `;
 
 export const SpringLayout = styled.div`
@@ -387,7 +387,7 @@ export const AgentImage = styled.img`
 
 export const AgentName = styled.p`
   color: var(--grey-s-50, #242e39);
-  //  
+  //
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -401,7 +401,7 @@ export const AgentName = styled.p`
 export const AgentRole = styled.p`
   color: var(--grey-t-65, #bfc6ce);
   text-align: left;
-  //  
+  //
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
@@ -442,7 +442,7 @@ export const ReviewCard = styled.div`
   right: 181px;
   padding: 21px 30px 23px 20px;
   box-sizing: border-box;
-  z-index:2;
+  z-index: 2;
 `;
 
 export const LetterAvatar = styled.div`
@@ -455,7 +455,7 @@ export const LetterAvatar = styled.div`
 
 export const SLetter = styled.p`
   color: var(--blue-t-98, #fafcfd);
-  //  
+  //
   font-size: 15px;
   font-style: normal;
   font-weight: 500;
@@ -468,7 +468,7 @@ export const SLetter = styled.p`
 
 export const UserName = styled.p`
   color: var(--grey-s-50, #242e39);
-  //  
+  //
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -482,7 +482,7 @@ export const UserName = styled.p`
 
 export const UserLocation = styled.p`
   color: var(--grey-s-50, #242e39);
-  //  
+  //
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -497,7 +497,7 @@ export const UserLocation = styled.p`
 
 export const ReviewFont = styled.p`
   color: var(--grey-s-50, #242e39);
-  //  
+  //
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -524,10 +524,10 @@ export const EditCircleOuterSt = styled.div`
 
   fill: #fff;
   filter: drop-shadow(0px 9px 20px rgba(99, 116, 135, 0.1));
-  z-index:2;
+  z-index: 2;
 `;
 
-export const EditCircleInnerSt = styled.div`
+export const CircleInnerSt = styled.div`
   position: absolute;
   top: 429px;
   right: 167px;
@@ -539,7 +539,7 @@ export const EditCircleInnerSt = styled.div`
   box-sizing: border-box;
 
   fill: var(--blue-t-96, #f6f9fc);
-  z-index:2;
+  z-index: 2;
 `;
 
 export const EditLogoDiv = styled.div`
@@ -583,4 +583,5 @@ export const XpShadowLayout = styled.div`
   position: absolute;
   top: 0px;
   right: 33px;
+  z-index: 2;
 `;
