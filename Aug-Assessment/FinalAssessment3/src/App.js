@@ -1,14 +1,14 @@
-import ReduxComponent from "./components/ReduxComponent";
-import ReduxComponent2 from "./components/ReduxComponent2";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import ProfileSummary from "./components/ProfileSummary";
+import UserData from "./components/UserData";
 
 function App() {
   return (
     <div className="App">
       <Provider store={store}>
-        <ReduxComponent2 />
-        <ReduxComponent />
+        <ProfileSummary />
+        <UserData />
       </Provider>
     </div>
   );

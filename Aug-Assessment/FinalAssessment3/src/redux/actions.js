@@ -1,42 +1,57 @@
-export const FETCH_DATA_REQUEST = "FETCH_DATA_REQUEST";
-export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
-export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
+import axios from "axios";
+import {
+  fetchDataRequest,
+  fetchDataSuccess,
+  fetchDataFailure,
+  fetchSecondApiDataRequest,
+  fetchSecondApiDataSuccess,
+  fetchSecondApiDataFailure,
+} from "./actionTypes";
 
-export const FETCH_SECOND_API_DATA_REQUEST = "FETCH_SECOND_API_DATA_REQUEST";
-export const FETCH_SECOND_API_DATA_SUCCESS = "FETCH_SECOND_API_DATA_SUCCESS";
-export const FETCH_SECOND_API_DATA_FAILURE = "FETCH_SECOND_API_DATA_FAILURE";
+export const fetchData = (authorizationToken) => {
+  return (dispatch) => {
+    dispatch(fetchDataRequest());
+    axios
+      .get(
+        "https://api.devtest.experience.com/v2/core/tiers/1892/possible_parents?limit=500",
+        {
+          headers: {
+            Authorization:
+              "eyJhbGciOiJFUzI1NiJ9.eyJzZXNzaW9uX2tleSI6Ik9lSjh1elVpa3FWbzlYOXplNVk0RHByZWptZUpybi8xMGlrOFdPcnYxQThCbzd0UEVzdEY5dTVjbk0vb1NUZ3JkZmYrKytKaEl5UmwzVWR0IiwiZXhwaXJlc19hdCI6IjIwMjMtMDktMTAgMDc6MjM6MTUgVVRDIiwiYWRtaW5faWQiOjQ5MX0.332XcGH1L71I6cHM7ERZkTTUBB8d0grBPQPbMp3Tp89ivwez3DgTcGIpOwmyb5NnyurT7jxxtBlHOu5YPAPy3A",
+            "Page-Token": authorizationToken,
+          },
+        }
+      )
+      .then((response) => {
+        dispatch(
+          fetchDataSuccess(response.data.parents_list.hierarchy[1].data)
+        );
+      })
+      .catch((error) => {
+        dispatch(fetchDataFailure(error.message));
+      });
+  };
+};
 
-export const fetchDataRequest = () => ({
-  type: FETCH_DATA_REQUEST,
-});
-
-export const fetchDataSuccess = (data) => ({
-  type: FETCH_DATA_SUCCESS,
-  payload: data,
-});
-
-export const fetchDataFailure = (error) => ({
-  type: FETCH_DATA_FAILURE,
-  payload: error,
-});
-
-export const fetchSecondApiDataRequest = () => ({
-  type: FETCH_SECOND_API_DATA_REQUEST,
-});
-
-export const fetchSecondApiDataSuccess = (data) => ({
-  type: FETCH_SECOND_API_DATA_SUCCESS,
-  payload: data,
-});
-
-export const fetchSecondApiDataFailure = (error) => ({
-  type: FETCH_SECOND_API_DATA_FAILURE,
-  payload: error,
-});
-
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-
-export const loginSuccess = (token) => ({
-  type: LOGIN_SUCCESS,
-  payload: token,
-});
+export const fetchSecondApiData = (authorizationToken) => {
+  return (dispatch) => {
+    dispatch(fetchSecondApiDataRequest());
+    axios
+      .get(
+        "https://api.devtest.experience.com/v2/prl/dashboard/account/11125/location_profile_summary",
+        {
+          headers: {
+            Authorization:
+              "eyJhbGciOiJFUzI1NiJ9.eyJzZXNzaW9uX2tleSI6Ik9lSjh1elVpa3FWbzlYOXplNVk0RHByZWptZUpybi8xMGlrOFdPcnYxQThCbzd0UEVzdEY5dTVjbk0vb1NUZ3JkZmYrKytKaEl5UmwzVWR0IiwiZXhwaXJlc19hdCI6IjIwMjMtMDktMTAgMDc6MjM6MTUgVVRDIiwiYWRtaW5faWQiOjQ5MX0.332XcGH1L71I6cHM7ERZkTTUBB8d0grBPQPbMp3Tp89ivwez3DgTcGIpOwmyb5NnyurT7jxxtBlHOu5YPAPy3A",
+            "Page-Token": authorizationToken,
+          },
+        }
+      )
+      .then((response) => {
+        dispatch(fetchSecondApiDataSuccess(response.data));
+      })
+      .catch((error) => {
+        dispatch(fetchSecondApiDataFailure(error.message));
+      });
+  };
+};

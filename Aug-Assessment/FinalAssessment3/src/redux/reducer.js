@@ -1,4 +1,3 @@
-// reducer.js
 import {
   FETCH_DATA_REQUEST,
   FETCH_DATA_SUCCESS,
@@ -7,7 +6,7 @@ import {
   FETCH_SECOND_API_DATA_REQUEST,
   FETCH_SECOND_API_DATA_SUCCESS,
   FETCH_SECOND_API_DATA_FAILURE,
-} from "./actions";
+} from "./actionTypes";
 
 const initialState = {
   data: [],

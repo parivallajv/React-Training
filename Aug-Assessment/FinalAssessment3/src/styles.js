@@ -31,3 +31,8 @@ export const TableHeaderCell = styled.th`
 export const MainDiv = styled.div`
   margin-left: 50px;
 `;
+
+export const ErrorMessage = styled.p`
+  font-family: sans-serif;
+  color: red;
+`;

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { connect, useSelector } from "react-redux";
-import { fetchData } from "../redux/asyncActions";
+import { connect } from "react-redux";
+import { fetchData } from "../redux/actions";
 import {
+  ErrorMessage,
   MainDiv,
   StyledTable,
   TableCell,
@@ -10,21 +11,19 @@ import {
   TableRow,
 } from "../styles";
 
-const ReduxComponent = ({ data, loading, error, fetchData }) => {
+const UserData = ({ data, loading, error, fetchData }) => {
   useEffect(() => {
     const authorizationToken =
       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyYW5kb21WYWx1ZSI6MTg5NzAwOTIzNX0.Ieqeccqd4e0E6w1zhuq52AafV3vR6OHPb79-OsCvuHI";
     fetchData(authorizationToken);
   }, []);
 
-  const userData = useSelector((state) => state.data);
-
   if (loading) {
     return <p>Loading...</p>;
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    return <ErrorMessage>Error: </ErrorMessage>;
   }
 
   return (
@@ -68,4 +67,4 @@ const mapDispatchToProps = {
   fetchData,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ReduxComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(UserData);

@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useEffect } from "react";
-import { fetchSecondApiData } from "../redux/asyncActions";
-import { MainDiv, StyledTable, TableHeaderCell, TableRow } from "../styles";
+import { fetchSecondApiData } from "../redux/actions";
+import { MainDiv } from "../styles";
 
-const ReduxComponent2 = () => {
+const ProfileSummary = () => {
   const dispatch = useDispatch();
   const data2 = useSelector((state) => state.data2);
 
@@ -12,6 +12,7 @@ const ReduxComponent2 = () => {
       "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJyYW5kb21WYWx1ZSI6ODk1ODkwMzIyfQ.X5t7ar6VVcxbWkgLDWR5estGXLRRwikHQ2lJt1ukdXE";
     dispatch(fetchSecondApiData(authorizationToken));
   }, [dispatch]);
+
   return (
     <div>
       <MainDiv>
@@ -26,4 +27,4 @@ const ReduxComponent2 = () => {
   );
 };
 
-export default ReduxComponent2;
+export default ProfileSummary;

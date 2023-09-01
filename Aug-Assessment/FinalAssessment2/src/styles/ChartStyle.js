@@ -87,16 +87,13 @@ export const Footer = styled.div`
 `;
 
 export const BodyDiv = styled.div`
-  height: 90%;
-  width: 75%;
-  margin: 20px auto;
-  & > canvas {
-    width: 100%;
-  }
+  width: 704px;
+  margin: 40px 20px 40px 20px;
+  box-sizing: border-box;
 `;
 
 export const GraphDiv = styled.div`
-  // height: 250px;
+  box-sizing: border-box;
 `;
 
 export const RankNumFooter = styled.div`

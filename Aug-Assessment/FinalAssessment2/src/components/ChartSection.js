@@ -25,6 +25,7 @@ import UnderLine from "../svg/UnderLine";
 const ChartSection = () => {
   const [userData, setUserData] = useState({
     labels: [
+      "",
       "01 Feb",
       "03 Feb",
       "06 Feb",
@@ -39,11 +40,35 @@ const ChartSection = () => {
     datasets: [
       {
         label: "dataValue",
-        tension: 0.1,
+        tension: 0,
         axis: "y",
         data: [300, 250, 245, 240, 220, 210, 205, 200, 190, 180, 145, 100, 50],
-        borderColor: "#3D7AB6",
-        backgroundColor: "rgb(240,245,254)",
+        // data:[250,100,145,180,190,200,205,210,220,240,245,250,300],
+        // data: [100, 100, 100, 112, 122, 127, 140, 160, 190, 230, 270].reverse(),
+        borderColor: "rgb(53, 162, 235)",
+        borderWidth: 2,
+        backgroundColor: (colorSet) => {
+          const bgColor = [
+            "rgba(53, 162, 235,0.4)",
+            "rgba(53, 162, 235,0.01)",
+            "rgba(53, 162, 235,0)",
+          ];
+          if (!colorSet.chart.chartArea) {
+            return;
+          }
+          const {
+            ctx,
+            data,
+            chartArea: { bottom, top, left },
+          } = colorSet.chart;
+          const gradientBG = ctx.createLinearGradient(0, bottom, 0, top,0,left);
+          gradientBG.addColorStop(0, bgColor[0]);
+          gradientBG.addColorStop(1, bgColor[1]);
+          gradientBG.addColorStop(1, bgColor[2]);
+          return gradientBG;
+        },
+        fill: true,
+        tension: 0,
       },
     ],
   });
